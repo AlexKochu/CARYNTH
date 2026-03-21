@@ -15,6 +15,14 @@
   <img src="https://img.shields.io/badge/scikit--learn-ML%20Engine-F7931E?style=flat-square&logo=scikitlearn" />
   <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" />
+  <a href="https://carynth.vercel.app/">
+    <img src="https://img.shields.io/badge/Live%20Demo-carynth.vercel.app-4A90E2?style=flat-square&logo=vercel&logoColor=white" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://carynth.vercel.app/"><strong>[ carynth.vercel.app ]</strong></a><br/>
+  <sub>Live deployment hosted on Vercel</sub>
 </p>
 
 ---
@@ -22,6 +30,16 @@
 ## Overview
 
 CARYNTH is an AI-powered Career Recommendation Engine that leverages a **Hybrid Random Forest + K-Means clustering algorithm** to analyze a user's academic attributes and technical skill profile. It predicts optimal tech career roles, surfaces actionable skill gaps, and generates a personalized, strategic learning roadmap — built for students and early-career professionals navigating the modern technology landscape.
+
+---
+
+## Live Demo
+
+```
+  [>] Deployed Application     https://carynth.vercel.app/
+```
+
+> The live version is hosted on Vercel. No local setup is required to explore the UI and recommendation engine.
 
 ---
 
