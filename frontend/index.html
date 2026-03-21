@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARYNTH | AI Career Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- FIXED NAVIGATION -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <i class="fa-solid fa-leaf"></i>
+            <span>CARYNTH</span>
+        </div>
+        <div class="nav-controls">
+            <button id="themeToggle" class="icon-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN SCROLL CONTAINER -->
+    <main class="scroll-container">
+        
+        <!-- SECTION 1: LANDING -->
+        <section id="landingSection" class="journey-section">
+            <div class="landing-background">
+                <div class="grid-overlay"></div>
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+            
+            <div class="content-wrapper text-center animate-on-scroll">
+                <div class="badge fade-in-up">Advanced Engine Active</div>
+                <h1 class="hero-title fade-in-up delay-1">Architect Your Future with Precision</h1>
+                <p class="hero-subtitle fade-in-up delay-2">CARYNTH combines Neural Networks and Machine Learning to analyze your skills, predict your ideal tech role, and chart a personalized learning roadmap.</p>
+                <div class="fade-in-up delay-3">
+                    <button id="getStartedBtn" class="primary-btn">
+                        <span>Start Architecture</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PROFILE BUILDER -->
+        <section id="builderSection" class="journey-section bg-alt">
+            <div class="content-wrapper max-w-800 animate-on-scroll">
+                <div class="section-header text-center fade-in-up">
+                    <div class="step-indicator">Step 1</div>
+                    <h2 class="section-title">Profile Builder</h2>
+                    <p class="section-desc">Configure your academic and technical attributes to generate your personalized AI career insights.</p>
+                </div>
+
+                <div class="card form-card fade-in-up delay-1">
+                    <form id="analysisForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>CGPA</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="e.g. 8.5" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Primary Interest</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <select id="interest" required>
+                                        <option value="" disabled selected>Select Area</option>
+                                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                        <option value="Machine Learning">Machine Learning</option>
+                                        <option value="Data Science">Data Science</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Software Engineering">Software Engineering</option>
+                                        <option value="Cloud Computing">Cloud Computing</option>
+                                        <option value="Cyber Security">Cyber Security</option>
+                                        <option value="App Development">App Development</option>
+                                        <option value="DevOps">DevOps</option>
+                                        <option value="Networks">Networks</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Skills (Comma tags)</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-code"></i>
+                                <input type="text" id="skills" placeholder="Python, SQL, React..." required>
+                            </div>
+                            <small class="hint">Separate skills with commas</small>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Courses Completed</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-book"></i>
+                                    <input type="number" id="courses" placeholder="10" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Projects Count</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                    <input type="number" id="projects" placeholder="3" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions display-flex justify-center mt-2">
+                            <button type="submit" class="primary-btn w-full" id="analyzeBtn">
+                                <span>Analyze Profile</span>
+                                <i class="fa-solid fa-bolt"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: RESULTS / ANALYSIS -->
+        <section id="resultsSection" class="journey-section hidden-section">
+            <div class="content-wrapper w-full max-w-1100">
+                <div class="section-header text-center blur-in">
+                    <div class="step-indicator">Step 2</div>
+                    <h2 class="section-title">Neural Analysis Results</h2>
+                    <p class="section-desc">Based on the Hybrid RF-KMeans Engine evaluation.</p>
+                </div>
+
+                <!-- LOADING STATE -->
+                <div id="loadingState" class="loading-container">
+                    <div class="loader"></div>
+                    <h3 class="mt-1">Processing Neural Metrics...</h3>
+                    <p class="text-secondary">Correlating inputs with thousands of industry data points.</p>
+                </div>
+
+                <!-- RESULTS GRID -->
+                <div id="resultsContent" class="results-grid hidden">
+                    
+                    <!-- Hero Component -->
+                    <div class="card hero-card result-fade-in delay-1">
+                        <div class="card-label">Recommended Role</div>
+                        <h1 id="roleResult">-</h1>
+                        <div class="cluster-badge" id="clusterResult">Cluster: -</div>
+                    </div>
+
+                    <!-- Score Component -->
+                    <div class="card score-card result-fade-in delay-2">
+                        <div class="card-label">Readiness Score</div>
+                        <div class="gauge-container">
+                            <svg class="gauge" viewBox="0 0 100 100">
+                                <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="gauge-fill" id="scoreGauge" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="score-text">
+                                <span id="scoreValue">0</span>%
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gap Component -->
+                    <div class="card gap-card result-fade-in delay-3">
+                        <div class="card-header">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Identified Skill Gaps</span>
+                        </div>
+                        <div class="tags-container" id="gapList">
+                            <!-- Tags injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Roadmap Component -->
+                    <div class="card roadmap-card result-fade-in delay-4">
+                        <div class="card-header">
+                            <i class="fa-solid fa-route"></i>
+                            <span>Strategic Learning Roadmap</span>
+                        </div>
+                        <div class="timeline" id="roadmapList">
+                            <!-- Timeline injected via JS -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
