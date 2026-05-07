@@ -7,7 +7,7 @@
    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
 ```
 
-<h1 align="center">CARYNTH — AI-Powered Career Architect</h1>
+<h1 align="center">CARYNTH —AI Career Intelligence Platform</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python" />
