@@ -2,7 +2,7 @@
 // const API_URL = "https://your-render-app-url.onrender.com/predict";
 
 // Local development URL
-const API_URL = "https://carynth.onrender.com/predict";
+const API_URL = "http://127.0.0.1:8000/predict";
 
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
