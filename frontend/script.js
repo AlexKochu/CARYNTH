@@ -1,7 +1,5 @@
-// TODO: Once you redeploy to Render, copy your service URL and paste it here!
-// It will look something like: https://career-architect-backend.onrender.com
-const API_URL = "http://127.0.0.1:8000/predict"; 
-// const API_URL = "https://career-architect-backend.onrender.com/predict";
+// Live Render API URL
+const API_URL = "https://carynth-1.onrender.com/predict";
 
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
