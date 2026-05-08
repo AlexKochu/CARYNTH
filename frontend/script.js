@@ -1,8 +1,7 @@
-// TODO: When deploying to Render, uncomment the line below and replace 'your-render-app-url'
-// const API_URL = "https://your-render-app-url.onrender.com/predict";
-
-// Local development URL
-const API_URL = "http://127.0.0.1:8000/predict";
+// TODO: Once you redeploy to Render, copy your service URL and paste it here!
+// It will look something like: https://career-architect-backend.onrender.com
+const API_URL = "http://127.0.0.1:8000/predict"; 
+// const API_URL = "https://career-architect-backend.onrender.com/predict";
 
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
