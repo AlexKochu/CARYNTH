@@ -1,5 +1,5 @@
-// Live Render API URL
-const API_URL = "https://carynth-1.onrender.com/predict";
+// Live ngrok tunnel URL (running locally via ngrok)
+const API_URL = "https://freely-hypnosis-amusement.ngrok-free.dev/predict";
 
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
