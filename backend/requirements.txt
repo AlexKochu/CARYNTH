@@ -7,6 +7,5 @@ numpy>=2.0.0
 scikit-learn==1.6.1
 setuptools
 wheel
-
-
-
+pyngrok>=7.0.0
+python-dotenv>=1.0.0
