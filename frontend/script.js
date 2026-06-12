@@ -1,4 +1,5 @@
-// Live ngrok tunnel URL (running locally via ngrok)
+// Ngrok static tunnel URL — permanent for this ngrok account
+// IMPORTANT: Backend must be running locally + ngrok must be active for this to work
 const API_URL = "https://freely-hypnosis-amusement.ngrok-free.dev/predict";
 
 // Theme Toggle
