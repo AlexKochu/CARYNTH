@@ -1,6 +1,6 @@
-// Ngrok static tunnel URL — permanent for this ngrok account
-// IMPORTANT: Backend must be running locally + ngrok must be active for this to work
-const API_URL = "https://freely-hypnosis-amusement.ngrok-free.dev/predict";
+// Permanent Render backend URL — runs 24/7 on cloud (no laptop needed)
+const API_URL = "https://career-architect-backend-w0ir.onrender.com/predict";
+
 
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
