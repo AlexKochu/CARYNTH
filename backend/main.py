@@ -51,18 +51,6 @@ def load_models():
         print("Models loaded successfully.")
     except Exception as e:
         print(f"CRITICAL ERROR loading models: {e}")
-        
-    # Setup Ngrok
-    ngrok_token = os.getenv("NGROK_AUTHTOKEN")
-    if ngrok_token:
-        try:
-            from pyngrok import ngrok
-            ngrok.set_auth_token(ngrok_token)
-            port = int(os.getenv("PORT", 8000))
-            public_url = ngrok.connect(port).public_url
-            print(f"ngrok tunnel '{public_url}' -> 'http://127.0.0.1:{port}'")
-        except Exception as e:
-            print(f"Failed to start ngrok tunnel: {e}")
 
 # 3. Request/Response Models
 class StudentProfile(BaseModel):
