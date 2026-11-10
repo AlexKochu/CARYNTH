@@ -2,16 +2,66 @@
 const API_URL = "https://career-architect-backend-w0ir.onrender.com/predict";
 
 
-// Theme Toggle
+// ========================================================================
+// CINEMATIC BACKGROUND SYSTEM
+// ========================================================================
+(function initCinematicBackground() {
+    const video = document.getElementById('bgVideo');
+    const poster = document.querySelector('.cinematic-poster');
+    if (!video) return;
+
+    // Respect prefers-reduced-motion
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function handleMotionPreference(mq) {
+        if (mq.matches) {
+            video.pause();
+            video.style.display = 'none';
+            if (poster) poster.style.display = 'block';
+        } else {
+            video.style.display = 'block';
+            if (poster) poster.style.display = 'none';
+            video.play().catch(() => {
+                // Autoplay blocked — fall back to poster
+                video.style.display = 'none';
+                if (poster) poster.style.display = 'block';
+            });
+        }
+    }
+
+    handleMotionPreference(motionQuery);
+    motionQuery.addEventListener('change', handleMotionPreference);
+
+    // Static fallback if video fails to load
+    video.addEventListener('error', () => {
+        video.style.display = 'none';
+        if (poster) poster.style.display = 'block';
+    });
+
+    // Handle stalled video
+    video.addEventListener('stalled', () => {
+        if (poster) poster.style.display = 'block';
+    });
+
+    video.addEventListener('playing', () => {
+        if (!motionQuery.matches && poster) {
+            poster.style.display = 'none';
+        }
+    });
+})();
+
+
+// ========================================================================
+// THEME TOGGLE (preserved — forces dark cinematic mode)
+// ========================================================================
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
-const savedTheme = localStorage.getItem('carynth-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-if (savedTheme === 'dark') {
-    body.setAttribute('data-theme', 'dark');
-    themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-}
+// Force dark theme for cinematic experience
+body.setAttribute('data-theme', 'dark');
+themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
 
+// Preserve theme toggle functionality
 themeToggle.addEventListener('click', () => {
     if (body.getAttribute('data-theme') === 'dark') {
         body.removeAttribute('data-theme');
@@ -24,7 +74,10 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Scroll Journey Logic
+
+// ========================================================================
+// SCROLL JOURNEY LOGIC (preserved)
+// ========================================================================
 const getStartedBtn = document.getElementById('getStartedBtn');
 const builderSection = document.getElementById('builderSection');
 const resultsSection = document.getElementById('resultsSection');
@@ -34,7 +87,10 @@ getStartedBtn.addEventListener('click', () => {
     builderSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-// Intersection Observer for scroll animations
+
+// ========================================================================
+// INTERSECTION OBSERVER — Scroll Animations
+// ========================================================================
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -45,7 +101,7 @@ const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            // Un-observer after animating once to prevent re-triggering constantly
+            // Un-observe after animating once to prevent re-triggering constantly
             observer.unobserve(entry.target);
         }
     });
@@ -55,7 +111,10 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
 });
 
-// Form Submission & API logic
+
+// ========================================================================
+// FORM SUBMISSION & API LOGIC (100% preserved)
+// ========================================================================
 document.getElementById('analysisForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -120,6 +179,10 @@ document.getElementById('analysisForm').addEventListener('submit', async functio
     }
 });
 
+
+// ========================================================================
+// DYNAMIC FORM CHANGE LISTENER (preserved)
+// ========================================================================
 // Add dynamic change listener to form inputs to hint that results will update
 // If user has already seen results, scrolling back up and changing an input could just re-submit smoothly.
 const inputs = document.querySelectorAll('#analysisForm input, #analysisForm select');
@@ -145,6 +208,10 @@ document.getElementById('analyzeBtn').addEventListener('click', function() {
     this.style.animation = 'none';
 });
 
+
+// ========================================================================
+// DISPLAY RESULTS (100% preserved)
+// ========================================================================
 function displayResults(data) {
     const resultsContent = document.getElementById('resultsContent');
     resultsContent.classList.remove('hidden');
