@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pickle
+import joblib
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 import os
@@ -23,8 +24,8 @@ app.add_middleware(
 # 2. Load Models
 print("Loading models...")
 def load_pkl(filename):
-    with open(filename, 'rb') as f:
-        return pickle.load(f)
+    """Load model using joblib (robust for scikit-learn objects)."""
+    return joblib.load(filename)
 
 # Global variables to store models
 models = {}
